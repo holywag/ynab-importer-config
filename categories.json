@@ -1,0 +1,33 @@
+[
+    {
+        "ynab_category": {
+            "group": "Other",
+            "name": "Charity"
+        },
+        "criterias": {
+            "payee": [
+                "Повернись живим"
+            ]
+        }
+    },
+    {
+        "ynab_category": {
+            "group": "Everyday",
+            "name": "Transportation"
+        },
+        "criterias": {
+            "mcc": [ 4111, 4112, 4121 ],
+            "payee": [
+                "LIQPAY\\*ECOS",
+                "LIQPAY\\*E\\-wingsScooters",
+                "ZELECTRA",
+                "Zelectra",
+                "LIQPAY\\*FOP Yagodkina O",
+                "FDY\\*Computer_SSL",
+                "JET\\.UA",
+                "(?:Скасування\\. )?(?:FDY\\*)?Bolt",
+                "Bikenow"
+            ]
+        }
+    }
+]

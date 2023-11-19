@@ -1,0 +1,88 @@
+{
+    "remove_cancelled_statements": true,
+    "merge_transfer_statements": true,
+    "remember_last_import_timestamp": true,
+    "ynab": {
+        "token": "<your_ynab_token>",
+        "budget_name": "<your_ynab_budget_name>"
+    },
+    "bank": {
+        "n_retries": 5,
+        "time_range": {
+            "start": "2022-09-26 18:00:00+03:00",
+            "end": null
+        },
+        "api": {
+            "monobank": [
+                {
+                    "token": "<your_monobank_token_1>",
+                    "accounts": [
+                        {
+                            "enabled": true,
+                            "ynab_name": "Рідне",
+                            "iban": "UA903220010000026201234567890",
+                            "transfer_payee": [
+                                "Янгол 😈"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "token": "<your_monobank_token_2>",
+                    "accounts": [
+                        {
+                            "enabled": true,
+                            "ynab_name": "Mono Black",
+                            "iban": "UA663220010000026201234567890",
+                            "transfer_payee": [
+                                "Переказ на картку",
+                                "З чорної картки"
+                            ]
+                        },
+                        {
+                            "enabled": true,
+                            "ynab_name": "Mono FOP",
+                            "iban": "UA583220010000026001234567890",
+                            "transfer_payee": [
+                                "З гривневого рахунку ФОП"
+                            ]
+                        },
+                        {
+                            "enabled": false,
+                            "ynab_name": "Instalments",
+                            "iban": null,
+                            "transfer_payee": [
+                                "Погашення розстрочки по витраті від \\d\\d\\.\\d\\d\\.\\d\\d\\d\\d",
+                                "Платіж .+",
+                                "Дострокове погашення .+"
+                            ]
+                        },
+                        {
+                            "enabled": false,
+                            "ynab_name": "Savings",
+                            "iban": null,
+                            "transfer_payee": [
+                                "На мрію"
+                            ]
+                        }
+                    ]
+                }
+            ],
+            "pumb": [
+                {
+                    "token": "/home/users/happy/pumb/pdf",
+                    "accounts": [
+                        {
+                            "enabled": true,
+                            "ynab_name": "PUMB",
+                            "iban": "UA723348510000026201234567890",
+                            "transfer_payee": [
+                                "Моя картка PUMB"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}
