@@ -1,0 +1,35 @@
+# Category mappings — auto-categorize transactions by payee regex or MCC code.
+#
+# Priority: payee match first, then MCC. If nothing matches, category is left empty.
+
+- category:
+    group: Everyday
+    name: Groceries
+  match:
+    mcc: [5411, 5422, 5441]
+    payee:
+      - 'LIDL'
+      - 'Silpo'
+
+- category:
+    group: Everyday
+    name: Dining Out
+  match:
+    mcc: [5811, 5812, 5813, 5814]
+
+- category:
+    group: Subscriptions
+    name: Software
+  match:
+    payee:
+      - 'APPLE\.COM'
+      - 'Netflix'
+
+- category:
+    group: Transport
+    name: Taxi
+  match:
+    mcc: [4121]
+    payee:
+      - 'UBER \*TRIP'
+      - 'Bolt'

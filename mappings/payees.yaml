@@ -1,0 +1,19 @@
+# Payee aliases — map messy bank descriptions to clean names.
+# Each key is the desired payee name, values are regex patterns to match.
+
+Apple:
+  - 'APPLE\.COM'
+  - 'APPLE\.COM/BILL'
+
+Netflix:
+  - 'NETFLIX\.COM'
+  - 'Netflix'
+
+Groceries:
+  - 'LIDL'
+  - 'Silpo'
+  - 'ATB-MARKET'
+
+Uber:
+  - 'UBER \*EATS'
+  - 'UBER \*TRIP'

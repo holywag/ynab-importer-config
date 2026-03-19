@@ -1,0 +1,35 @@
+# Pipeline: read from bank APIs -> map payees -> categorize -> deduplicate transfers -> upload to YNAB.
+
+steps:
+  # 1. Read transactions from bank sources and map to YNAB accounts.
+  #    Format: source.account: budget.ynab_account_name
+  - read:
+      from:
+        monobank.checking: my_budget.Checking Account
+        pumb.credit: my_budget.Credit Card
+        millennium.eur: my_budget.EUR Account
+      tracking:
+        monobank.savings: my_budget.Savings
+        tracking.cash: my_budget.Cash
+      time_range:
+        start: "2025-01-01T00:00:00+02:00"
+        # start: config/timestamp    # or read from file (bare ISO string)
+
+  # 2. Rename messy bank descriptions to clean payee names.
+  - map:
+      type: payee
+      mappings: config/mappings/payees.yaml
+
+  # 3. Auto-categorize by payee regex or MCC code.
+  - map:
+      type: categorize
+      mappings: config/mappings/categories.yaml
+
+  # 4. When the same transfer appears from both sides (e.g. checking->savings),
+  #    keep only one to avoid YNAB duplicates.
+  - filter: deduplicate_transfers
+
+  # 5. Upload to YNAB.
+  - write:
+      to: my_budget
+      # timestamp: config/timestamp  # save current time after successful upload

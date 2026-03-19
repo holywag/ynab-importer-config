@@ -1,0 +1,6 @@
+# YNAB budgets — token + budget name.
+# Referenced by pipeline write steps.
+
+my_budget:
+  token: "${YNAB_TOKEN}"
+  budget: "My Budget"

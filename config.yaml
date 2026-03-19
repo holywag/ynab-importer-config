@@ -1,0 +1,5 @@
+sources: config/sources.yaml
+budgets: config/budgets.yaml
+
+pipelines:
+  daily_import: config/pipelines/daily_import.yaml

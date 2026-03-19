@@ -1,0 +1,39 @@
+# Bank data sources — each defines a bank API connection and its accounts.
+# Tokens use ${ENV_VAR} syntax, resolved from .env file or environment.
+
+monobank:
+  type: monobank
+  token: "${MONO_TOKEN}"
+  retries: 5
+  remove_cancelled: true
+  accounts:
+    checking:
+      iban: "UA583220010000026001234567890"
+      transfer_patterns:
+        - 'From checking'
+        - 'To checking'
+    savings:
+      transfer_patterns:
+        - 'From savings'
+
+pumb:
+  type: pumb_credit
+  path: "/path/to/bank/statements"
+  accounts:
+    credit:
+      iban: "UA663220010000026201234567890"
+      transfer_patterns:
+        - 'PUMB Credit'
+
+millennium:
+  type: millennium
+  path: "/path/to/bank/statements"
+  accounts:
+    eur:
+      iban: "PT50003300004576012345678"
+
+# Tracking accounts have no bank API — used for transfer detection only.
+tracking:
+  type: tracking
+  accounts:
+    cash: {}
